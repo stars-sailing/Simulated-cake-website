@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="阿飞飞">
+    <style>
+        *{margin:0;padding:0;}
+        body,html{
+            min-width: 1250px;
+        }
+        #banner{
+            overflow: hidden;
+            height: 1000px;
+            position: relative;
+            width: 100%;
+        }
+        #banner img{
+            position: absolute;
+            left: 50%;
+            width: 1920px;
+            height: 620px;
+            margin-left: -960px;
+        }
+        div{
+            width: 500px;
+            height: 500px;
+        }
+        img{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <img data-original="./img/banners/banner2.jpg" width="1920" height="462" alt="" />
+    </div>
+    <div><img data-original="./img/cake/01.png" alt=""/></div>
+    <div><img data-original="./img/cake/01.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/02.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/03.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/04.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/05.png" alt=""/></div>
+    <div><img data-original="./img/cake/06.png" alt=""/></div>
+    <div><img data-original="./img/cake/07.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/08.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/09.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/10.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/11.jpg" alt=""/></div>
+    <div><img data-original="./img/cake/12.jpg" alt=""/></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+<script>
+    
+    $(function () {
+        $("img").lazyload({
+            threshold : 100, //距离显示区底部多远的时候开始加载
+            effect : "fadeIn" //载入特效
+        });
+    });
+    
+</script>
+</html>

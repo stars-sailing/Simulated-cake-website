@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="阿飞飞">
+    <style>
+        *{margin:0;padding:0;}
+        body,html{
+            min-width: 1250px;
+        }
+        #banner{
+            overflow: hidden;
+            height: 1000px;
+            position: relative;
+            width: 100%;
+        }
+        #banner img{
+            position: absolute;
+            left: 50%;
+            width: 1920px;
+            height: 620px;
+            margin-left: -960px;
+        }
+        img{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <img src="./img/load.jpg" datasrc="./img/banners/banner2.jpg" width="1920" height="462" alt="" />
+    </div>
+    <img src="./img/load.jpg" datasrc="./img/cake/01.png" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/01.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/02.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/03.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/04.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/05.png" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/06.png" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/07.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/08.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/09.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/10.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/11.jpg" alt=""/>
+    <img src="./img/load.jpg" datasrc="./img/cake/12.jpg" alt=""/>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    $(function () {
+        let arrImg = [...document.querySelectorAll("img")];
+
+        let num = 0;
+        check();
+        /*页面高度发生变化的时候需要检测*/
+        $(window).scroll(function () {
+            check();
+        });
+
+
+        /*检测函数*/
+        function check(){
+            num++;
+            for (let i=arrImg.length-1;i>=0;i--){
+                console.log(num);
+                if(!arrImg.length)return;
+                let $node = $(arrImg[i]);
+                let toTop = $node.offset().top;
+                if (toTop <= $(window).scrollTop()+$(window).height()){
+                    $node.prop("src", $node.attr("datasrc") );
+                    $node.removeAttr("datasrc");
+                    arrImg.splice(i,1);
+                }
+            }
+
+        }
+
+    });
+</script>
+</html>
